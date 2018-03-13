@@ -12,7 +12,9 @@ def gui_show(image):
     plt.show()
 
 def banner():
-    pass
+    print("Welcome To Twitter Scraperrrrrr!")
+    print("Usage: python scraper.py [twitter user]")
+    sys.exit(0)
 
 def resize(size, image):
     width, height = size

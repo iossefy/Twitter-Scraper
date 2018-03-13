@@ -2,6 +2,7 @@
 
 now you can scrape twitter profiles without authentication!
 
+Usage: `python scraper.py [twitter user]`
 
 ![photo1](photo1.png)
 

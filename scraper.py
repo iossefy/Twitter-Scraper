@@ -11,6 +11,12 @@ def gui_show(image):
     plt.imshow(image, interpolation='nearest')
     plt.show()
 
+def bad_request():
+    print("Something went wrong!")
+    print("Try to check your internet connection")
+    print("or check if the user is valid.")
+    sys.exit(1)
+
 def banner():
     print("Welcome To Twitter Scraperrrrrr!")
     print("Usage: python scraper.py [twitter user]")
@@ -32,7 +38,10 @@ soup = BeautifulSoup(source.text, 'lxml')
 
 # Get Information
 title = soup.find('title').text
-username = soup.find('a', class_='ProfileHeaderCard-nameLink').text
+try:
+    username = soup.find('a', class_='ProfileHeaderCard-nameLink').text
+except Exception as e:
+    bad_request()
 name_tag = soup.find('b', class_='u-linkComplex-target').text
 bio = soup.find('p', class_='ProfileHeaderCard-bio').text
 website = str(soup.find('span', class_='ProfileHeaderCard-urlText').text)
